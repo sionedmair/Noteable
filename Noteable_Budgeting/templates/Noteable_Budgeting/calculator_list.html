@@ -1,0 +1,129 @@
+<style>
+h1, h2{
+  line-height: 80px;
+}
+h2, h5{
+  line-height: 5px;
+}
+
+</style>
+
+{% block titleblock %}
+
+<title>Noteable Budgeting</title>
+
+
+{% endblock %}
+
+<body bgcolor="#E0 FF FF">
+<font face="Impact", size="6"
+
+{% block content %}
+
+<div class="text2">
+
+<center>  <h1>Noteable Budgeting</h1> </center>
+<center> <h2>Budgeting Calculator</h2> </center>
+<center><h5>By Noteable</h5></center>
+	<br>
+</font>
+</font>
+
+<center>
+  <font face="Arial", font size="5">
+	<p>
+	Input your weekly incomes and fixed outcomes into the boxes below. Our calculator will give a recommended weekly amount to spend on food and socialising.
+	</p>
+  </font>
+</center>
+
+  <font face="Arial", font size="4">
+	<br>
+
+	<form action="/calculator/test/" method="post">{% csrf_token %}
+
+		<p>
+		<div class="ui-widget">
+		<label for="parents">Parents: £</label>
+		<input id="parents" type="number" name="parents" maxlength="100" />
+		</div>
+		</p>
+
+    <p>
+		<div class="ui-widget">
+		<label for="jobs">Jobs: £</label>
+		<input id="jobs" type="number" name="jobs" maxlength="100" />
+		</div>
+		</p>
+
+    <p>
+		<div class="ui-widget">
+		<label for="grants_bursaries_scholarship">Grants/Bursaries/Scholarships: £</label>
+		<input id="grants_bursaries_scholarship" type="number" name="grants_bursaries_scholarships" maxlength="100" />
+		</div>
+		</p>
+
+    <p>
+		<div class="ui-widget">
+		<label for="student_loan">Student Loan: £</label>
+		<input id="student_loan" type="number" name="student_loan" maxlength="100" />
+		</div>
+		</p>
+
+    <p>
+    <div class="ui-widget">
+    <label for="other_income">Other Income: £</label>
+    <input id="other_income" type="number" name="other_income" maxlength="100" />
+    </div>
+    </p>
+
+    <p>
+    <div class="ui-widget">
+    <label for="rent">Rent: £</label>
+    <input id="rent" type="number" name="rent" maxlength="100" />
+    </div>
+    </p>
+
+    <p>
+		<div class="ui-widget">
+		<label for="travel">Travel: £</label>
+		<input id="travel" type="number" name="travel" maxlength="100" />
+		</div>
+		</p>
+
+    <p>
+    <div class="ui-widget">
+    <label for="bills">Bills: £</label>
+    <input id="bills" type="number" name="bills" maxlength="100" />
+    </div>
+    </p>
+
+    <p>
+    <div class="ui-widget">
+    <label for="other_outcome">Other Outcome: £</label>
+    <input id="other_outcome" type="number" name="other_outcome" maxlength="100" />
+    </div>
+    </p>
+
+		<input type="submit" value="Submit" />
+  </font>
+
+
+<br>
+{% if form.errors %}
+  <font face="Arial", font size="4">
+<h1> Error! </h1>
+  Suitable values should be inputted for:
+    {% for i in form.errors %}
+  <div>  <li>
+{{i}}
+</div>
+{% endfor %}
+</font>
+
+{% endif %}
+
+</div>
+</font>
+
+{% endblock %}

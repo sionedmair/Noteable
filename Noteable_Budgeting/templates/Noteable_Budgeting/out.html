@@ -1,0 +1,32 @@
+{% block titleblock %}
+<title>Noteable Budgeting</title>
+{% endblock %}
+
+<body bgcolor="#E0 FF FF">
+<font face="Impact", size="4"
+
+{% block content %}
+
+<div class="text2">
+
+<center>  <h1>Results</h1> </center>
+
+</font>
+
+<center>
+  <font face="Arial", font size="5">
+	<p>
+	Your recommended weekly spending amount for food is &pound; <u>{{food| floatformat:2 }}</u>, and for socialising is &pound; <u>{{socialising| floatformat:2 }}</u> .
+	<br>
+	Your leftover spending amount per week is &pound; <u>{{leftover| floatformat:2}}</u>
+</p>
+</font>
+</center>
+
+	<br>
+
+	<b><a href="/calculator/test/">back</a></b>
+
+</div>
+
+{% endblock %}
